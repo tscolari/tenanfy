@@ -52,12 +52,6 @@ Console:
   rails g tenantfy:install
   rake db:migrate
 
-Controller:
-
-  class ApplicationController
-    include Tenantfy::Controller
-  end
-
 = License
 
 This project uses MIT-LICENSE.
