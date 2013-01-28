@@ -7,7 +7,7 @@ It comes with configurations and helpers I find usefull in my projects.
 Apartment is an awesome gem by itself, be sure to read more about it at https://github.com/bradrobertson/apartment
 
 
-=== How this works
+=== How
 
 If you don't know what is tenantcy or how the apartment gem works, please read https://github.com/bradrobertson/apartment first.
 
@@ -18,6 +18,11 @@ This is done by looking for the request.host in the Tenanfy::Url table. The curr
 This is meant to be used and only tested using PostgreSQL.
 Every tenant will have it own schema in the database, and the apartment gem will use postgres' awesome `search_path` to look in the current_tenant schema first.
 You may have shared tables between your tenants, check the `config/initializers/apartment.rb`.
+
+=== Why
+
+If you don't need any of this customizations, I recommend you use the Apartment gem alone.
+I only made this because I had these requirements in more than one project, and maybe someone could find a good use of it too.
 
 === Customizations
 
@@ -35,11 +40,6 @@ Example:
 
   <%= tenant_stylesheet_link_tag('application.css') %>   # will include blue/application.css
   <%= tenant_javascript_include_tag('application.js') %> # will include blue/application.js
-
-=== Conclusion
-
-If you don't need any of this customizations, I recommend you use the Apartment gem alone.
-I only made this because I had these requirements in more than one project, and maybe someone could find a good use of it too.
 
 == Installation
 
