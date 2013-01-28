@@ -26,7 +26,7 @@ module Tenantfy
 
     # Adds the tenant theme in the controller view path
     def prepend_tenant_theme
-      prepend_view_path current_tenant.theme_path if current_tenant
+      prepend_view_path current_tenant.theme_path if current_tenant && current_tenant.theme_path
     end
 
     # Returns the current tenant for this request
