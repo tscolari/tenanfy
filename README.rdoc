@@ -1,4 +1,4 @@
-= Tenantfy
+= Tenanfy
 
 This is opinionated use of the awesome Apartment gem. 
 It's a plug and play ready solution for enabling multitenancy in rails applications.
@@ -11,9 +11,9 @@ Apartment is an awesome gem by itself, be sure to read more about it at https://
 
 If you don't know what is tenantcy or how the apartment gem works, please read https://github.com/bradrobertson/apartment first.
 
-This gem creates 2 models, Tenantfy::[Tenant, Url].
-When you include the Tenantfy::Controller to your controller, it will automatically check for the correct Tenant for each request.
-This is done by looking for the request.host in the Tenantfy::Url table. The current tenant will be available in the `current_tenant` method.
+This gem creates 2 models, Tenanfy::[Tenant, Url].
+When you include the Tenanfy::Controller to your controller, it will automatically check for the correct Tenant for each request.
+This is done by looking for the request.host in the Tenanfy::Url table. The current tenant will be available in the `current_tenant` method.
 
 This is meant to be used and only tested using PostgreSQL.
 Every tenant will have it own schema in the database, and the apartment gem will use postgres' awesome `search_path` to look in the current_tenant schema first.
@@ -24,7 +24,7 @@ You may have shared tables between your tenants, check the `config/initializers/
 ==== Custom Views per tenant
 
 In my projects, each tenant usually have a different layout/theme. So the tenant model have a `theme` attribute.
-When this is setted, the `Tenantfy::Controller` will prepend the tenant theme in the view path, for example, if the theme is `blue`,
+When this is setted, the `Tenanfy::Controller` will prepend the tenant theme in the view path, for example, if the theme is `blue`,
 the path `app/views/blue` will be prepended to the controller view_path. 
 
 ==== Custom JS/CSS per tenant
@@ -45,11 +45,11 @@ I only made this because I had these requirements in more than one project, and 
 
 Gemfile:
 
-  gem 'tenantfy'
+  gem 'tenanfy'
 
 Console:
 
-  rails g tenantfy:install
+  rails g tenanfy:install
   rake db:migrate
 
 = License

@@ -9,13 +9,14 @@ require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require
-require "tenantfy"
+require "tenanfy"
 
 module Dummy
   class Application < Rails::Application
 
-   require 'tenantfy/apartment/elevator'
-   config.middleware.use 'Apartment::Elevators::Generic', Tenantfy::Apartment::Elevator.new
+   require 'tenanfy/apartment/elevator'
+   config.middleware.use 'Apartment::Elevators::Generic', Tenanfy::Apartment::Elevator.new
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

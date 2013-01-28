@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
 
-  include Tenantfy::Controller
+  include Tenanfy::Controller
   protect_from_forgery
 end

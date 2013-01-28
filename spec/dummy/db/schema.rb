@@ -11,9 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128033146) do
+ActiveRecord::Schema.define(:version => 20130128053123) do
 
-  create_table "tenantfy_tenants", :force => true do |t|
+  create_table "tenanfy_tenants", :force => true do |t|
     t.string   "name",        :null => false
     t.string   "theme",       :null => false
     t.string   "description"
@@ -23,14 +23,14 @@ ActiveRecord::Schema.define(:version => 20130128033146) do
     t.datetime "updated_at",  :null => false
   end
 
-  create_table "tenantfy_urls", :force => true do |t|
+  create_table "tenanfy_urls", :force => true do |t|
     t.string   "url",        :null => false
     t.integer  "tenant_id",  :null => false
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  add_index "tenantfy_urls", ["tenant_id"], :name => "index_tenantfy_urls_on_tenant_id"
-  add_index "tenantfy_urls", ["url"], :name => "index_tenantfy_urls_on_url", :unique => true
+  add_index "tenanfy_urls", ["tenant_id"], :name => "index_tenanfy_urls_on_tenant_id"
+  add_index "tenanfy_urls", ["url"], :name => "index_tenanfy_urls_on_url", :unique => true
 
 end

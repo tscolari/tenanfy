@@ -1,9 +1,9 @@
 require 'spec_helper'
 
-module Tenantfy
+module Tenanfy
   describe Tenant do
     let(:tenant) { FactoryGirl.create(:tenant, :with_url) }
-    
+
     describe "#find_by_domain" do
       it "should return the correct tenant" do
         Tenant.find_by_domain(tenant.urls.first.url).should eq tenant

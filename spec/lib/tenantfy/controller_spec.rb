@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-module Tenantfy
+module Tenanfy
   class TestController < ActionController::Base
-    include Tenantfy::Controller
+    include Tenanfy::Controller
   end
 
   describe Controller do

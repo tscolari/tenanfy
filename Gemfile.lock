@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenantfy (0.0.1)
+    tenanfy (0.0.1)
       apartment
       rails (~> 3.2.11)
 
@@ -129,4 +129,4 @@ DEPENDENCIES
   jquery-rails
   pg
   rspec-rails
-  tenantfy!
+  tenanfy!

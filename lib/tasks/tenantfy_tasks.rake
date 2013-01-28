@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :tenantfy do
+# task :tenanfy do
 #   # Task goes here
 # end

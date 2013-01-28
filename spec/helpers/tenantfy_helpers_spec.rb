@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-module Tenantfy
+module Tenanfy
   describe Helpers do
     let(:tenant) { FactoryGirl.create(:tenant) }
 
@@ -8,7 +8,7 @@ module Tenantfy
       helper.stub(:current_tenant).and_return(tenant)
     end
 
-    context "Tenantfy Helpers" do
+    context "Tenanfy Helpers" do
       describe "#tenant_stylesheet_link_tag" do
         it "should update the sources with the tenant theme and forward do ss_link_tag" do
           helper.should_receive(:append_tenant_theme_to_assets)
