@@ -1,0 +1,3 @@
+before_script:
+  - psql -c 'create database tenantfy_test;' -U postgres
+  - "cd spec/dummy; RAILS_ENV=test bundle exec rake db:migrate"
