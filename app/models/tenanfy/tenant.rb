@@ -1,6 +1,5 @@
 module Tenanfy
   class Tenant < ActiveRecord::Base
-    attr_accessible :description, :keywords, :name, :theme, :configs
     validates       :name, :theme, presence: true
     validates       :theme, format: { with: /[a-z0-9_]+/ }
     serialize       :configs, Hash
