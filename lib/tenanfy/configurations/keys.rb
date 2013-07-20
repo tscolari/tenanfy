@@ -16,6 +16,10 @@ module Tenanfy
 
       # LIVEFYRE configuration
       LIVEFYRE_SITE_ID = 'livefyre_id'
+
+      # GOOGLE ANALYTICS
+      GOOGLE_ANALYTICS_ID = 'ga_id'
+      GOOGLE_ANALYTICS_DOMAIN = 'ga_domain'
     end
   end
 end
