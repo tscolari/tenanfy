@@ -18,9 +18,11 @@ module Tenanfy
     #
     def setup_tenant_thread
       Thread.current[:tenant] = current_tenant
+      on_tenant_change
       prepend_tenant_theme
       yield
     ensure
+      after_tenant_change
       Thread.current[:tenant] = nil
     end
 
@@ -43,6 +45,9 @@ module Tenanfy
     def current_tenant_name
       current_tenant ? current_tenant.name : "Global"
     end
+
+    def on_tenant_change; end
+    def after_tenant_change; end
 
   end
 end
