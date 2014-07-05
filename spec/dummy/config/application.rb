@@ -14,6 +14,7 @@ require "tenanfy"
 module Dummy
   class Application < Rails::Application
 
+   require 'apartment/elevators/generic'
    require 'tenanfy/apartment/elevator'
    config.middleware.use 'Apartment::Elevators::Generic', Tenanfy::Apartment::Elevator.new
 

@@ -6,7 +6,6 @@
 development:
   adapter: postgresql
   database: tenanfy_development
-  username: root
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -14,9 +13,7 @@ development:
 test:
   adapter: postgresql
   database: tenanfy_test
-  username: postgres
 
 production:
   adapter: postgresql
   database: tenanfy_production
-  username: root

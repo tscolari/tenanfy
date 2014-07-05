@@ -20,7 +20,7 @@ module Tenanfy
     end
 
     def switch_to_tenant
-      ::Apartment::Database.switch(self.schema_name)
+      ::Apartment::Tenant.switch(self.schema_name)
     end
 
     def theme_path
@@ -30,11 +30,11 @@ module Tenanfy
     private
 
     def build_schema
-      ::Apartment::Database.create(self.schema_name)
+      ::Apartment::Tenant.create(self.schema_name)
     end
 
     def drop_schema
-      ::Apartment::Database.drop(self.schema_name)
+      ::Apartment::Tenant.drop(self.schema_name)
     end
 
   end

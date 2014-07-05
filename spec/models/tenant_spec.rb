@@ -12,8 +12,8 @@ module Tenanfy
 
     describe "#switch_to_tenant" do
       it "should call Apartment switch with tenant's schema name" do
-        ::Apartment::Database.stub(:switch).and_return(nil)
-        ::Apartment::Database.should_receive(:switch).with(tenant.schema_name)
+        ::Apartment::Tenant.stub(:switch).and_return(nil)
+        ::Apartment::Tenant.should_receive(:switch).with(tenant.schema_name)
         tenant.switch_to_tenant
       end
     end
@@ -26,16 +26,16 @@ module Tenanfy
 
     describe "#build_schema" do
       it "should call Apartment create with schema_name" do
-        ::Apartment::Database.stub(:create).and_return(nil)
-        ::Apartment::Database.should_receive(:create).with(tenant.schema_name)
+        ::Apartment::Tenant.stub(:create).and_return(nil)
+        ::Apartment::Tenant.should_receive(:create).with(tenant.schema_name)
         tenant.send :build_schema
       end
     end
 
     describe "#drop_schema" do
       it "should call Apartment drop with schema_name" do
-        ::Apartment::Database.stub(:drop).and_return(nil)
-        ::Apartment::Database.should_receive(:drop).with(tenant.schema_name)
+        ::Apartment::Tenant.stub(:drop).and_return(nil)
+        ::Apartment::Tenant.should_receive(:drop).with(tenant.schema_name)
         tenant.send :drop_schema
       end
     end
