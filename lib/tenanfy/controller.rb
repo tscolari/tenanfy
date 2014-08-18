@@ -9,7 +9,7 @@ module Tenanfy
 
     private
 
-    # Setups the current_tenant in the Thread.current
+    # Setups the current_tenant in the RequestStore.store
     # so it can be accessed by different contexts in the
     # same request
     #
@@ -17,13 +17,13 @@ module Tenanfy
     # this way there isn't any dead tenant hanging
     #
     def setup_tenant_thread
-      Thread.current[:tenant] = current_tenant
+      RequestStore.store[:tenant] = current_tenant
       on_tenant_change
       prepend_tenant_theme
       yield
     ensure
       after_tenant_change
-      Thread.current[:tenant] = nil
+      RequestStore.store[:tenant] = nil
     end
 
     # Adds the tenant theme in the controller view path
