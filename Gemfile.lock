@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    tenanfy (0.0.6)
+    tenanfy (0.0.7)
       apartment (>= 0.25.0)
       rails (>= 3.2.0)
       request_store
