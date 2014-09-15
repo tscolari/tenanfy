@@ -23,7 +23,11 @@ module Tenanfy
     #
     def append_tenant_theme_to_assets(*assets)
       assets.map! do |asset|
-        should_add_tenant_theme_to_asset?(asset) && current_tenant ? "#{current_tenant.theme}/#{asset}" : asset
+        if should_add_tenant_theme_to_asset?(asset) && current_tenant
+          "#{current_tenant.themes.first}/#{asset}"
+        else
+          asset
+        end
       end
       assets
     end

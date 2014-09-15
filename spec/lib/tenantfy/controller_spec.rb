@@ -6,7 +6,7 @@ module Tenanfy
   end
 
   describe Controller do
-    let(:tenant) { FactoryGirl.create(:tenant) }
+    let(:tenant) { FactoryGirl.create(:tenant, themes: ["theme1", "theme2"]) }
     subject { TestController.new }
 
     before(:each) { subject.stub_chain(:request, :host).and_return(nil) }
@@ -30,6 +30,25 @@ module Tenanfy
       end
     end
 
+    describe "#current_tenant_themes" do
+      context "there is a tenant" do
+        before(:each) do
+          url = FactoryGirl.create(:url, tenant: tenant)
+          subject.stub_chain(:request, :host).and_return(url.url)
+        end
+
+        it "should return the current tenant themes" do
+          subject.send(:current_tenant_themes).should eq tenant.themes
+        end
+      end
+
+      context "no tenant found" do
+        it "should return a blank string" do
+          subject.send(:current_tenant_themes).should eq []
+        end
+      end
+    end
+
     describe "#current_tenant_theme" do
       context "there is a tenant" do
         before(:each) do
@@ -37,8 +56,8 @@ module Tenanfy
           subject.stub_chain(:request, :host).and_return(url.url)
         end
 
-        it "should return the current tenant theme" do
-          subject.send(:current_tenant_theme).should eq tenant.theme
+        it "should return the current tenant themes" do
+          subject.send(:current_tenant_theme).should eq tenant.themes.first
         end
       end
 
@@ -69,7 +88,7 @@ module Tenanfy
       end
     end
 
-    describe "#prepend_tenant_theme" do
+    describe "#prepend_tenant_themes" do
       context "there is a tenant" do
         before(:each) do
           url = FactoryGirl.create(:url, tenant: tenant)
@@ -77,15 +96,15 @@ module Tenanfy
         end
 
         it "should prepend the tenant view theme" do
-          subject.should_receive(:prepend_view_path).with(tenant.theme_path)
-          subject.send(:prepend_tenant_theme)
+          subject.should_receive(:prepend_view_path).with(tenant.theme_paths)
+          subject.send(:prepend_tenant_themes)
         end
       end
 
       context "no tenant found" do
         it "should prepend the tenant view theme" do
           subject.should_receive(:prepend_view_path).never
-          subject.send(:prepend_tenant_theme)
+          subject.send(:prepend_tenant_themes)
         end
       end
     end

@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130128053123) do
+ActiveRecord::Schema.define(:version => 20140916155444) do
 
   create_table "tenanfy_tenants", :force => true do |t|
-    t.string   "name",        :null => false
-    t.string   "theme",       :null => false
+    t.string   "name",                          :null => false
+    t.string   "themes",      :default => "{}", :null => false
     t.string   "description"
     t.string   "keywords"
     t.text     "configs"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "tenanfy_urls", :force => true do |t|

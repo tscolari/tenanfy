@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :tenant, class: 'Tenanfy::Tenant' do
     name  { "tenant_#{Random.rand 10000}" }
-    theme { "tenant_#{Random.rand 100}"}
+    themes { ["tenant_#{Random.rand 100}"] }
     description { "tenant_#{Random.rand 1000}" }
     keywords { "tenant_#{Random.rand 1000}" }
 

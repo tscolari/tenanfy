@@ -28,7 +28,7 @@ module Tenanfy
       describe "#append_tenant_theme_to_assets" do
         context "single asset" do
           it "should append tenant theme only when not a full-path" do
-            helper.send(:append_tenant_theme_to_assets, 'application.css').should eq ["#{tenant.theme}/application.css"]
+            helper.send(:append_tenant_theme_to_assets, 'application.css').should eq ["#{tenant.themes.first}/application.css"]
             helper.send(:append_tenant_theme_to_assets, '/application.css').should eq ["/application.css"]
             helper.send(:append_tenant_theme_to_assets, 'http://b.com/application.css').should eq ["http://b.com/application.css"]
           end
@@ -36,9 +36,9 @@ module Tenanfy
 
         context "multiple assets" do
           it "should append tenant theme only when not a full-path" do
-            helper.send(:append_tenant_theme_to_assets, 
+            helper.send(:append_tenant_theme_to_assets,
                         'application.css', '/application.css', 'http://b.com/application.css').should eq [
-                          "#{tenant.theme}/application.css",
+                          "#{tenant.themes.first}/application.css",
                           "/application.css",
                           "http://b.com/application.css"]
           end
