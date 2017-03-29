@@ -3,7 +3,7 @@ module Tenanfy
     extend ActiveSupport::Concern
 
     included do
-      around_filter :setup_tenant_thread
+      around_action :setup_tenant_thread
       helper_method :current_tenant, :current_tenant_themes, :current_tenant_name
       helper_method :current_tenant_themes
       helper_method :current_tenant_theme
